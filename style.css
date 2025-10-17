@@ -4,9 +4,9 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px 50px;
+  padding: 5px 50px;
   background-color: #fdfdfd;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.05);
   font-family: "Inter", sans-serif;
 }
 
@@ -18,8 +18,8 @@ header {
 }
 
 .logo img {
-  width: 70px;
-  height: 70px;
+  width: 95px;
+  height: 95px;
 }
 
 
@@ -195,9 +195,9 @@ main {
 
 /* Brand Section */
 .footer-logo {
-  width: 42px;
-  height: 42px;
-  border-radius: 10px;
+  width: 55px;
+  height: 55px;
+  border-radius: 14px;
   object-fit: contain;
   margin-bottom: 8px;
 }
@@ -281,25 +281,3 @@ main {
   color: #e2e8f0;
 }
 
-/* Responsive */
-@media (max-width: 900px) {
-  .footer-container {
-    grid-template-columns: 1fr 1fr;
-    padding: 0 22px 10px;
-    column-gap: 28px;
-  }
-  .footer-bottom {
-    padding: 8px 22px 0;
-  }
-}
-@media (max-width: 600px) {
-  .footer-container {
-    grid-template-columns: 1fr;
-    padding: 0 20px 8px;
-  }
-  .footer-bottom {
-    flex-direction: column;
-    gap: 5px;
-    text-align: center;
-  }
-}
