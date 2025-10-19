@@ -1,1 +1,43 @@
-*DS_Store
+# ===== System Files =====
+.DS_Store
+Thumbs.db
+desktop.ini
+Icon?
+
+# ===== OS / Cache =====
+__MACOSX/
+*.log
+*.tmp
+*.bak
+*.swp
+*.swo
+
+# ===== Editor Settings =====
+.vscode/
+.idea/
+*.code-workspace
+
+# ===== Build or Export Folders (if any) =====
+dist/
+build/
+out/
+.cache/
+
+# ===== Sass / CSS Maps =====
+.sass-cache/
+*.css.map
+
+# ===== Env or Private Configs =====
+.env
+.env.local
+.env.*.local
+
+# ===== Archive or Backup Files =====
+*.zip
+*.tar
+*.gz
+
+# ===== Local test or personal folders =====
+/test/
+/private/
+/drafts/
