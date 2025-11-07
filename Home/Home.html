@@ -4,23 +4,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>HomeEase</title>
-
-  <!-- === Stylesheet & Font & Normalize === -->
-  <link rel="stylesheet" href="style.css" />
-  <link href="../header_footer.html" rel="stylesheet" />
-  <link rel="stylesheet" href="../normalize.css">
-
-  <!-- === Favicon === -->
-  <link rel="icon" href="../images /Logo.jpeg" />
+  <link rel="stylesheet" href="/normalize.css">
+  <link rel="stylesheet" href="/Home/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="/images /Logo copy.gif">
 </head>
 
 <body>
-
-  <!-- ================= HEADER ================= -->
+  <!-- === HEADER === -->
   <header>
     <!-- === Logo Section === -->
     <div class="logo">
-      <img src="../images /Logo.jpeg"HomeEase Logo" />
+      <img src="/images /Logo.jpeg"HomeEase Logo">
       <div class="brand-text">
         <h1>HomeEase</h1>
         <p>Essential Home Supplies</p>
@@ -29,22 +24,21 @@
     
     <!-- === Navigation Bar === -->
     <nav class="nav">
-      <a href="#" class="active"><img src="../icons/home.png" alt="Home icon" /> Home</a>
-      <a href="#"><img src="../icons/box.png" alt="Products icon" /> Products</a>
-      <a href="#"><img src="../icons/information.png" alt="About icon" /> About</a>
-      <a href="#"><img src="../icons/telephone.png" alt="Contact icon" /> Contact</a>
+      <a href="#" class="active"><img src="/icons/home.png" alt="Home icon"> Home</a>
+      <a href="#"><img src="/icons/box.png" alt="Products icon"> Products</a>
+      <a href="#"><img src="/icons/information.png" alt="About icon"> About</a>
+      <a href="#"><img src="/icons/telephone.png" alt="Contact icon"> Contact</a>
     </nav>
 
     <!-- === Header Actions === -->
-
     <div class="actions">
       <!-- Search Bar -->
       <div class="search">
-        <input type="text" placeholder="Search products..." />
+        <input type="text" placeholder="Search products...">
       </div>
-
+      <!-- language  -->
       <div class="lang">
-        <img src="../icons/internet.png" alt="Language" class="icon-22" />
+        <img src="/icons/internet.png" alt="Language" class="icon-22">
         <select class="lang-select">
           <option value="en">EN</option>
           <option value="fr">FR</option>
@@ -52,42 +46,143 @@
       </div>
 
       <!-- Shopping Cart -->
-      <img src="../icons/shopping-cart.png" alt="Shopping Cart" class="icon" />
+      <img src="/icons/shopping-cart.png" alt="Shopping Cart" class="icon">
 
       <!-- Login Button -->
       <div class="login">
-        <img src="../icons/user.png" alt="User" />
+        <img src="/icons/user.png" alt="User">
         <span>Log in</span>
       </div>
     </div>
   </header>
-
-  <!-- Empty main to push footer down -->
+  <!-- ==== MAIN ====-->
   <main>
-    <section class="hero">
-        <div class="'hero_contact">
-            <h2>Everithing for your dream home</h2>
-            <p>
-                From Furniture to Kitchenware , Electronics to Lighting - find everything you need to make your house feel like home , all in one place.
-            </p>
-            <a href="#featured" class="btn-outline">shop now</a>
-        </div>
-        <div class="hero__media">
-            <img src="" alt="living room" class="hero-img">
-            <img src="" alt="modern interior" class="hero-img">
-        </div>
+    <!-- Hero section -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero__content">
+        <h2 id="hero-title"><span class="color">Everything</span> for your <span class="color">dream home</span></h2>
+        <p>
+          From furniture to kitchenware, electronics to lighting—find everything you need
+          to make your house feel like home, all in one place.
+        </p>
+        <a href="#featured" class="btn-outline">Shop now</a>
+      </div>
+
+      <!-- Hero images-->
+      <div class="hero__media">
+        <img src="/images /House 2.png" alt="Cozy living room" class="hero-img">
+        <img src="/images /Home.png" alt="Modern interior" class="hero-img">
+      </div>
     </section>
 
+    <!-- Categories grid -->
+    <section class="cats" aria-labelledby="cats-title">
+      <div class="section-head">
+        <h3 id="cats-title">Shop by Category</h3>
+        <p>Find everything you need for every room in your home</p>
+      </div>
+
+      <!-- Category cards -->
+      <div class="cats__grid">
+        <!-- Furniture -->
+        <a href="#" class="cat-card" aria-label="Furniture">
+          <span class="cat-ico ">
+            <img src="/icons/long-sofa.png" alt="armchair"/>
+          </span>
+          <span class="cat-title">Furniture</span>
+        </a>
+
+        <!-- Electronics -->
+        <a href="#" class="cat-card" aria-label="Electronics">
+          <span class="cat-ico">
+            <img src="/icons/television.png" alt="television"/>
+          </span>
+          <span class="cat-title">Electronics</span>
+        </a>
+
+        <!-- Lighting -->
+        <a href="#" class="cat-card" aria-label="Lighting">
+          <span class="cat-ico">
+            <img src="/icons/idea.png" alt="lightbulb"/>
+          </span>
+          <span class="cat-title">Lighting</span>
+        </a>
+
+        <!-- Decor -->
+        <a href="#" class="cat-card" aria-label="Decor">
+          <span class="cat-ico">
+            <img src="/icons/modern.png" alt="Decor"/>
+          </span>
+          <span class="cat-title">Decor</span>
+        </a>
+
+        <!-- Bedding -->
+        <a href="#" class="cat-card" aria-label="Bedding">
+          <span class="cat-ico">
+            <img src="/icons/bed.png" alt="bed"/>
+          </span>
+          <span class="cat-title">Bedding</span>
+        </a>
+
+        <!-- Kitchenware -->
+        <a href="#" class="cat-card" aria-label="Kitchenware">
+          <span class="cat-ico">
+            <img src="/icons/chef.png" alt="kitchenware"/>
+          </span>
+          <span class="cat-title">Kitchenware</span>
+        </a>
+
+        <!-- Storage -->
+        <a href="#" class="cat-card" aria-label="Storage">
+          <span class="cat-ico">
+            <img src="/icons/box copy.png" alt="box"/>
+          </span>
+          <span class="cat-title">Storage</span>
+        </a>
+
+        <!-- Appliances -->
+        <a href="#" class="cat-card" aria-label="Appliances">
+          <span class="cat-ico">
+            <img src="/icons/electrical-appliance.png" alt="Appliances"/>
+          </span>
+          <span class="cat-title">Appliances</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Featured products -->
+    <section id="featured" class="featured" aria-labelledby="featured-title">
+      <div class="featured-header">
+        <div>
+          <h3 id="featured-title">Featured Products</h3>
+          <p>Our most popular items, loved by thousands of customers</p>
+        </div>
+        <a href="#" class="view-all">View All →</a>
+      </div>
+
+      <!-- Product cards -->
+      <div class="featured-grid">
+        <div class="featured-card">
+          <img src="/images /Kitchen.png" alt="Product 1">
+        </div>
+        <div class="featured-card">
+          <img src="/images /Living room 2.png" alt="Product 2">
+        </div>
+        <div class="featured-card">
+          <img src="/images /Lamp1.png" alt="Product 3">
+        </div>
+        <div class="featured-card">
+          <img src="/images /Mirror.png" alt="Product 4">
+        </div>
+      </div>
+    </section>
   </main>
 
-
-  <!-- ================= FOOTER ================= -->
+ <!-- ==== FOOTER ==== -->
   <footer class="site-footer">
     <div class="footer-container">
-      
-      <!-- === Brand Description === -->
       <div class="footer-section brand">
-        <img src="../images /Logo.jpeg" alt="HomeEase Logo" class="footer-logo" />
+        <img src="/images /Logo.jpeg" alt="HomeEase Logo" class="footer-logo" />
         <h2 class="footer-title">HomeEase</h2>
         <p class="footer-text">
           Your one-stop destination for all home essentials. Quality, convenience,
@@ -160,7 +255,5 @@
       <p>Built with ❤️ for your home.</p>
     </div>
   </footer>
-<script src="mode.js"></script>
-
 </body>
 </html>
