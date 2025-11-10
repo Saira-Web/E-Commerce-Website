@@ -9,7 +9,7 @@ main {
   flex: 1;
 }
 
-/* === HEADER ===*/
+/* === HEADER (team work) ===*/
 
 header {
   display: flex;
@@ -47,7 +47,7 @@ header {
   margin: 0;
 }
 
-/* --- Primary nav --- */
+/* --- nav --- */
 .nav {
   display: flex;
   gap: 20px;
@@ -144,7 +144,7 @@ header {
   transform: scale(1.05);
 }
 
-/* --- Small icons & login button --- */
+/* --- login button --- */
 .icon {
   width: 24px;
   height: 24px;
@@ -166,24 +166,26 @@ header {
   height: 24px;
 }
 
-/* ===HERO ===*/
+/* === HERO (Setayesh's work) ===*/
 
 .hero {
   max-width: 1200px;
   margin: 18px auto 8px;
   padding: 0 30px;
   display: grid;
-  grid-template-columns: 1.1fr 1fr;
+  grid-template-columns: 1.5fr 1fr;
   gap: 28px;
   align-items: center;
 }
 
 .hero__content h2 {
-  font-size: 35px;
+  font-size: 45px;
   font-weight: 800;
   color: #202531;
-  margin: 0 0 10px;
+  margin: 0 0 14px;
+  line-height: 1.15;
 }
+
 
 .color{
   color: #ed8a2c;
@@ -215,21 +217,43 @@ header {
 }
 
 .hero__media {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 18px;
+  display: flex;
+  justify-content: flex-end;
 }
 
-.hero-img {
+.hero-slider {
+  width: 420px;
+  height: 280px;
+  border-radius: 18px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+}
+
+
+
+.hero-slider img {
+  position: absolute;
+  inset: 0;
   width: 100%;
-  height: 220px;
+  height: 100%;
   object-fit: cover;
-  border-radius: 14px;
-  background: #f3f5f9;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  opacity: 0;
+  animation: slideShow 10s infinite;
 }
 
-/* === Shop by Category === */
+.hero-slider img:nth-child(1) { animation-delay: 0s; }
+.hero-slider img:nth-child(2) { animation-delay: 5s; }
+
+@keyframes slideShow {
+  0% { opacity: 0; }
+  10% { opacity: 1; }
+  45% { opacity: 1; }
+  55% { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+/* === Shop by Category(Saira's work) === */
 
 .cats {
   max-width: 1200px;
@@ -257,6 +281,7 @@ header {
 }
 
 /* --- Category grid --- */
+
 .cats__grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -320,6 +345,8 @@ header {
   height: 100%;
   object-fit: contain;
   stroke: #111;
+  padding: 3px;
+
 }
 
 .cat-title {
@@ -328,7 +355,7 @@ header {
   color: #202531;
 }
 
-/* === FEATURED PRODUCTS ===*/
+/* === FEATURED PRODUCTS (Rolando's work) ===*/
 
 .featured {
   max-width: 1200px;
@@ -403,7 +430,7 @@ header {
   object-fit: cover;
 }
 
-/* ==== FOOTER ==== */
+/* ==== FOOTER (team work) ==== */
 
 .site-footer {
   background: #0e1625;
