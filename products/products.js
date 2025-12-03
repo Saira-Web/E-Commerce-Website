@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // ================== PRODUCT META ==================
   const PRODUCT_META = [
     {
       id: 1,
@@ -67,7 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
     return acc;
   }, {});
 
-  // ================= HEADER & LEFT SIDEBAR (Setayesh / Rolando) =================
+  // ================= GRID & SIDEBAR BASE (Setayesh/Rolando) =================
   const productGrid = document.querySelector(".product-grid");
   const cards = Array.from(document.querySelectorAll(".product-card"));
 
@@ -89,6 +90,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const categoryShowMoreBtn = categoryBox.querySelector(".show-more");
   const brandShowMoreBtn = brandBox.querySelector(".show-more");
+  const clearBtn = document.querySelector(".clear-filters");
+
+  categoryLis.forEach(
+    (li) => (li.dataset.key = li.childNodes[0].nodeValue.trim())
+  );
+  priceLis.forEach((li) => (li.dataset.key = li.childNodes[0].nodeValue.trim()));
+  brandLis.forEach((li) => (li.dataset.key = li.childNodes[0].nodeValue.trim()));
 
   // ================= SEARCH AREA =================
   const headerSearch = document.querySelector("header .search input");
@@ -100,6 +108,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const sortSelect = document.querySelector(
     ".products-search select:nth-of-type(2)"
   );
+
+  const categoryOptionValues = categorySelect
+    ? Array.from(categorySelect.options).map((o) => o.value)
+    : [];
+  const sortOptionValues = sortSelect
+    ? Array.from(sortSelect.options).map((o) => o.value)
+    : [];
 
   let searchTerm = "";
 
@@ -135,7 +150,269 @@ document.addEventListener("DOMContentLoaded", () => {
     sortSelect.addEventListener("change", applyFiltersAndSort);
   }
 
-  // ================= MAIN FILTERS & SORT (Saira / Setayesh) =================
+  // ============ LANGUAGE SWITCH (EN / FR) ============
+  const langSelect = document.querySelector(".lang-select");
+
+  const navLinks = document.querySelectorAll(".nav a");
+  const navIconsHTML = Array.from(navLinks).map((link) => {
+    const img = link.querySelector("img");
+    return img ? img.outerHTML : "";
+  });
+
+  const productsTitle = document.querySelector(".products-header h2");
+  const productsText = document.querySelector(".products-header p");
+
+  const productsSearchInput = document.querySelector(".products-search input");
+
+  const sidebarBoxes = document.querySelectorAll(".sidebar .filter-box");
+  const sidebarCatsBox = sidebarBoxes[0];
+  const sidebarPriceBox = sidebarBoxes[1];
+  const sidebarBrandsBox = sidebarBoxes[2];
+
+  const sidebarCatsTitle = sidebarCatsBox?.querySelector("h3");
+  const sidebarCatsItems = sidebarCatsBox?.querySelectorAll("li") || [];
+  const sidebarCatsMoreBtn = sidebarCatsBox?.querySelector("button");
+
+  const sidebarPriceTitle = sidebarPriceBox?.querySelector("h3");
+  const sidebarPriceItems = sidebarPriceBox?.querySelectorAll("li") || [];
+
+  const sidebarBrandsTitle = sidebarBrandsBox?.querySelector("h3");
+  const sidebarBrandsMoreBtn = sidebarBrandsBox?.querySelector("button");
+
+  // --- FOOTER ---
+  const footerSections = document.querySelectorAll(
+    ".site-footer .footer-section"
+  );
+  const footerBrandText = footerSections[0]?.querySelector(".footer-text");
+  const footerQuickTitle = footerSections[1]?.querySelector("h3");
+  const footerQuickLinks =
+    footerSections[1]?.querySelectorAll("ul li a") || [];
+  const footerCatsTitle = footerSections[2]?.querySelector("h3");
+  const footerCatsLinks = footerSections[2]?.querySelectorAll("ul li a") || [];
+  const footerFollowTitle = footerSections[3]?.querySelector("h3");
+  const footerBottomText = document.querySelector(
+    ".footer-bottom p:last-child"
+  );
+
+  const translations = {
+    en: {
+      // nav
+      navHome: "Home",
+      navProducts: "Products",
+      navAbout: "About",
+      navContact: "Contact",
+
+      // header products
+      productsTitle: "All Products",
+      productsText: "Discover everything you need for your perfect home",
+      productsSearchPlaceholder: "Search products...",
+
+      // search selects
+      categorySelect: [
+        "All Categories",
+        "Lighting",
+        "Appliances",
+        "Decor",
+        "Electronics",
+      ],
+      sortSelect: ["A–Z", "Z–A", "Lowest Price", "Highest Price"],
+
+      // sidebar
+      sidebarCatsTitle: "Categories",
+      sidebarCats: ["Lighting", "Appliances", "Decor", "Electronics"],
+      sidebarCatsMore: "Show more",
+
+      sidebarPriceTitle: "Price Range",
+      sidebarPrice: [
+        "Under $50",
+        "$50–$100",
+        "$100–200",
+        "$200–500",
+        "Over $500",
+      ],
+
+      sidebarBrandsTitle: "Brands",
+      sidebarBrandsMore: "Show more",
+      clearFilters: "Clear Filters",
+
+      // footer
+      footerBrand:
+        "Your one-stop destination for all home essentials. Quality, convenience, and value in one place.",
+      footerQuickTitle: "Quick Links",
+      footerQuick: ["Home", "About", "Contact"],
+      footerCatsTitle: "Categories",
+      footerCats: [
+        "Furniture",
+        "Kitchenware",
+        "Electronics",
+        "Lighting",
+        "Decor",
+        "Storage",
+        "Bedding",
+        "Appliances",
+      ],
+      footerFollowTitle: "Follow Us",
+      footerBuilt: "Built with ❤️ for your home.",
+    },
+
+    fr: {
+      // nav
+      navHome: "Accueil",
+      navProducts: "Produits",
+      navAbout: "À propos",
+      navContact: "Contact",
+
+      // header products
+      productsTitle: "Tous les produits",
+      productsText:
+        "Découvrez tout ce dont vous avez besoin pour votre maison idéale.",
+      productsSearchPlaceholder: "Rechercher des produits...",
+
+      // search selects
+      categorySelect: [
+        "Toutes les catégories",
+        "Éclairage",
+        "Électroménagers",
+        "Décor",
+        "Électronique",
+      ],
+      sortSelect: [
+        "A–Z",
+        "Z–A",
+        "Prix le plus bas",
+        "Prix le plus élevé",
+      ],
+
+      // sidebar
+      sidebarCatsTitle: "Catégories",
+      sidebarCats: ["Éclairage", "Électroménagers", "Décor", "Électronique"],
+      sidebarCatsMore: "Afficher plus",
+
+      sidebarPriceTitle: "Fourchette de prix",
+      sidebarPrice: [
+        "Moins de 50 $",
+        "50–100 $",
+        "100–200 $",
+        "200–500 $",
+        "Plus de 500 $",
+      ],
+
+      sidebarBrandsTitle: "Marques",
+      sidebarBrandsMore: "Afficher plus",
+      clearFilters: "Réinitialiser les filtres",
+
+      // footer
+      footerBrand:
+        "Votre destination unique pour tous les essentiels de la maison. Qualité, commodité et valeur au même endroit.",
+      footerQuickTitle: "Liens rapides",
+      footerQuick: ["Accueil", "À propos", "Contact"],
+      footerCatsTitle: "Catégories",
+      footerCats: [
+        "Meubles",
+        "Articles de cuisine",
+        "Électronique",
+        "Éclairage",
+        "Décor",
+        "Rangement",
+        "Literie",
+        "Électroménagers",
+      ],
+      footerFollowTitle: "Suivez-nous",
+      footerBuilt: "Créé avec ❤️ pour votre maison.",
+    },
+  };
+
+  function applyLanguage(lang) {
+    const t = translations[lang] || translations.en;
+
+    // --- nav ---
+    const navLabels = [t.navHome, t.navProducts, t.navAbout, t.navContact];
+    navLinks.forEach((link, i) => {
+      const iconHTML = navIconsHTML[i] || "";
+      link.innerHTML = iconHTML + " " + navLabels[i];
+    });
+
+    // --- header products ---
+    if (productsTitle) productsTitle.textContent = t.productsTitle;
+    if (productsText) productsText.textContent = t.productsText;
+    if (productsSearchInput)
+      productsSearchInput.placeholder = t.productsSearchPlaceholder;
+
+    if (categorySelect) {
+      const opts = categorySelect.options;
+      t.categorySelect.forEach((txt, i) => {
+        if (opts[i]) {
+          opts[i].textContent = txt;
+          opts[i].value = categoryOptionValues[i];
+        }
+      });
+    }
+
+    // sort select
+    if (sortSelect) {
+      const opts = sortSelect.options;
+      t.sortSelect.forEach((txt, i) => {
+        if (opts[i]) {
+          opts[i].textContent = txt;
+          opts[i].value = sortOptionValues[i];
+        }
+      });
+    }
+
+    // --- sidebar: categories ---
+    if (sidebarCatsTitle) sidebarCatsTitle.textContent = t.sidebarCatsTitle;
+    sidebarCatsItems.forEach((li, i) => {
+      if (t.sidebarCats[i]) {
+        li.childNodes[0].textContent = t.sidebarCats[i] + " ";
+      }
+    });
+    if (sidebarCatsMoreBtn) sidebarCatsMoreBtn.textContent = t.sidebarCatsMore;
+
+    // price range
+    if (sidebarPriceTitle) sidebarPriceTitle.textContent = t.sidebarPriceTitle;
+    sidebarPriceItems.forEach((li, i) => {
+      if (t.sidebarPrice[i]) {
+        li.childNodes[0].textContent = t.sidebarPrice[i] + " ";
+      }
+    });
+
+    // brands
+    if (sidebarBrandsTitle) sidebarBrandsTitle.textContent = t.sidebarBrandsTitle;
+    if (sidebarBrandsMoreBtn)
+      sidebarBrandsMoreBtn.textContent = t.sidebarBrandsMore;
+
+    if (clearBtn) clearBtn.textContent = t.clearFilters;
+
+    // --- footer ---
+    if (footerBrandText) footerBrandText.textContent = t.footerBrand;
+
+    if (footerQuickTitle) footerQuickTitle.textContent = t.footerQuickTitle;
+    footerQuickLinks.forEach((a, i) => {
+      if (t.footerQuick[i]) a.textContent = t.footerQuick[i];
+    });
+
+    if (footerCatsTitle) footerCatsTitle.textContent = t.footerCatsTitle;
+    footerCatsLinks.forEach((a, i) => {
+      if (t.footerCats[i]) a.textContent = t.footerCats[i];
+    });
+
+    if (footerFollowTitle) footerFollowTitle.textContent = t.footerFollowTitle;
+    if (footerBottomText) footerBottomText.textContent = t.footerBuilt;
+  }
+
+  const savedLang = localStorage.getItem("homeease-lang") || "en";
+  applyLanguage(savedLang);
+  if (langSelect) langSelect.value = savedLang;
+
+  if (langSelect) {
+    langSelect.addEventListener("change", () => {
+      const lang = langSelect.value;
+      localStorage.setItem("homeease-lang", lang);
+      applyLanguage(lang);
+    });
+  }
+
+  // ================= MAIN FILTERS & SORT(Saira/Setayesh) =================
   const products = cards
     .map((card) => {
       const name = card.querySelector("h4").textContent.trim();
@@ -204,21 +481,21 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     categoryLis.forEach((li) => {
-      const label = li.childNodes[0].nodeValue.trim();
+      const key = li.dataset.key;
       const span = li.querySelector("span");
-      span.textContent = categoryCounts[label] || 0;
+      span.textContent = categoryCounts[key] || 0;
     });
 
     priceLis.forEach((li) => {
-      const label = li.childNodes[0].nodeValue.trim();
+      const key = li.dataset.key;
       const span = li.querySelector("span");
-      span.textContent = priceCounts[label] || 0;
+      span.textContent = priceCounts[key] || 0;
     });
 
     brandLis.forEach((li) => {
-      const label = li.childNodes[0].nodeValue.trim();
+      const key = li.dataset.key;
       const span = li.querySelector("span");
-      span.textContent = brandCounts[label] || 0;
+      span.textContent = brandCounts[key] || 0;
     });
   }
 
@@ -269,22 +546,22 @@ document.addEventListener("DOMContentLoaded", () => {
     const activeCategories = new Set(
       categoryLis
         .filter((li) => li.classList.contains("active"))
-        .map((li) => li.childNodes[0].nodeValue.trim())
+        .map((li) => li.dataset.key)
     );
     const activeBrands = new Set(
       brandLis
         .filter((li) => li.classList.contains("active"))
-        .map((li) => li.childNodes[0].nodeValue.trim())
+        .map((li) => li.dataset.key)
     );
     const activePrices = new Set(
       priceLis
         .filter((li) => li.classList.contains("active"))
-        .map((li) => li.childNodes[0].nodeValue.trim())
+        .map((li) => li.dataset.key)
     );
 
     const selectCategoryValue = categorySelect
       ? categorySelect.value
-      : "All Categories";
+      : categoryOptionValues[0] || "";
 
     products.forEach((p) => {
       let visible = true;
@@ -298,10 +575,13 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!activeCategories.has(p.category)) visible = false;
       }
 
+      const allValue = categoryOptionValues[0];
+
       if (
         visible &&
         selectCategoryValue &&
-        selectCategoryValue !== "All Categories"
+        allValue &&
+        selectCategoryValue !== allValue
       ) {
         if (p.category !== selectCategoryValue) visible = false;
       }
@@ -343,23 +623,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
     sorted.forEach((p) => productGrid.appendChild(p.card));
   }
+
   // Clear Filters Button
-const clearBtn = document.querySelector(".clear-filters");
-
-if (clearBtn) {
-  clearBtn.addEventListener("click", () => {
-    [...categoryLis, ...priceLis, ...brandLis].forEach((li) =>
-      li.classList.remove("active")
-    );
-    if (headerSearch) headerSearch.value = "";
-    if (mainSearch) mainSearch.value = "";
-    searchTerm = "";
-    if (categorySelect) categorySelect.value = "All Categories";
-    if (sortSelect) sortSelect.value = "Default";
-    applyFiltersAndSort();
-  });
-}
-
+  if (clearBtn) {
+    clearBtn.addEventListener("click", () => {
+      [...categoryLis, ...priceLis, ...brandLis].forEach((li) =>
+        li.classList.remove("active")
+      );
+      if (headerSearch) headerSearch.value = "";
+      if (mainSearch) mainSearch.value = "";
+      searchTerm = "";
+      if (categorySelect) categorySelect.value = categoryOptionValues[0] || "";
+      if (sortSelect) sortSelect.value = sortOptionValues[0] || "";
+      applyFiltersAndSort();
+    });
+  }
 
   recomputeSidebarCounts();
   initShowMore(categoryLis, categoryShowMoreBtn);
