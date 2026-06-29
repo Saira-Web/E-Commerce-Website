@@ -1,6 +1,5 @@
 <!-- This is for project tasklist 7 (feature 2 )-->
- 
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -8,7 +7,7 @@
   <title>HomeEase</title>
   <link rel="stylesheet" href="/normalize.css">
   <link rel="stylesheet" href="/products/products.css">
-  <script src="/products/products.js"></script>
+  <script src="/products/products.js" defer></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <link rel="icon" href="/images /Logo copy.gif">
 </head>
@@ -29,8 +28,8 @@
     <nav class="nav">
       <a href="/Home/Home.html"><img src="/icons/home.png" alt="Home icon"> Home</a>
       <a href="/products/products.html" class="active"><img src="/icons/box.png" alt="Products icon"> Products</a>
-      <a href="#"><img src="/icons/information.png" alt="About icon"> About</a>
-      <a href="#"><img src="/icons/telephone.png" alt="Contact icon"> Contact</a>
+      <a href="/About /about.html"><img src="/icons/information.png" alt="About icon"> About</a>
+      <a href="/Contact/contact.html"><img src="/icons/telephone.png" alt="Contact icon"> Contact</a>
     </nav>
 
     <!-- === Header Actions === -->
@@ -39,6 +38,7 @@
       <div class="search">
         <input type="text" placeholder="Search products...">
       </div>
+
       <!-- language  -->
       <div class="lang">
         <img src="/icons/internet.png" alt="Language" class="icon-22">
@@ -47,171 +47,231 @@
           <option value="fr">FR</option>
         </select>
       </div>
+      <!-- Shopping Cart + mini cart dropdown -->
+      <div class="cart">
+        <img src="/icons/shopping-cart.png" alt="Shopping Cart" class="icon" id="cart-icon">
+        <span id="cart-count">0</span>
 
-      <!-- Shopping Cart -->
-      <img src="/icons/shopping-cart.png" alt="Shopping Cart" class="icon">
+        <!-- Mini Cart dropdown -->
+        <div class="cart-dropdown" id="cart-dropdown">
+          <h4 class="cart-title">My Cart</h4>
+
+          <div class="cart-items" id="cart-items">
+            <!-- items will be injected here by JS -->
+          </div>
+
+          <div class="cart-summary">
+            <span>Total:</span>
+            <span id="cart-total">$0.00</span>
+          </div>
+
+          <a href="/checkout/checkout.html" class="checkout-btn">
+            Go to checkout
+          </a>
+        </div>
+      </div>
+
 
       <!-- Login Button -->
       <div class="login">
-        <img src="/icons/user.png" alt="User">
-        <span>Log in</span>
+      <a href="/account/account.html" class="active"><img src="/icons/user.png" alt="account "> Log in </a>
       </div>
     </div>
   </header>
+
   <!-- ==== MAIN ====-->
-<main class="products-page">
+  <main class="products-page">
 
-  <!-- ===== TITLE & SEARCH BAR (Setayesh)===== -->
-  <div class="products-header">
-    <h2>All Products</h2>
-    <p>Discover everything you need for your perfect home</p>
+    <!-- ===== TITLE & SEARCH BAR ===== -->
+    <div class="products-header">
+      <h2>All Products</h2>
+      <p>Discover everything you need for your perfect home</p>
 
-    <div class="products-search">
-      <input type="text" placeholder="Search products..." />
-      <select>
-        <option>All Categories</option>
-        <option>Lighting</option>
-        <option>Appliances</option>
-        <option>Decor</option>
-        <option>Electronics</option>
-      </select>
-      <select>
-        <option>A–Z</option>
-        <option>Z–A</option>
-        <option>Lowest Price</option>
-        <option>Highest Price</option>
-      </select>
+      <div class="products-search">
+        <input type="text" placeholder="Search products..." />
+        <select>
+          <option>All Categories</option>
+          <option>Lighting</option>
+          <option>Appliances</option>
+          <option>Decor</option>
+          <option>Electronics</option>
+        </select>
+        <select>
+          <option>A–Z</option>
+          <option>Z–A</option>
+          <option>Lowest Price</option>
+          <option>Highest Price</option>
+        </select>
+      </div>
     </div>
-  </div>
 
-  <div class="products-layout">
+    <div class="products-layout">
 
-    <!-- ===== LEFT SIDEBAR (Rolando)===== -->
-    <aside class="sidebar">
+      <!-- ===== LEFT SIDEBAR ===== -->
+      <aside class="sidebar">
 
-      <!-- Categories -->
-      <div class="filter-box">
-        <h3>Categories</h3>
-        <ul>
-          <li>Lighting <span></span></li>
-          <li>Appliances <span></span></li>
-          <li>Decor <span></span></li>
-          <li>Electronics <span></span></li>
-        </ul>
-        <button class="show-more">Show more</button>
-      </div>
-
-      <!-- Price Range -->
-      <div class="filter-box">
-        <h3>Price Range</h3>
-        <ul>
-          <li>Under $50 <span></span></li>
-          <li>$50–$100 <span></span></li>
-          <li>$100–200 <span></span></li>
-          <li>$200–500 <span></span></li>
-          <li>Over $500 <span></span></li>
-        </ul>
-      </div>
-
-      <!-- Brands -->
-      <div class="filter-box">
-        <h3>Brands</h3>
-        <ul>
-
-          <li>BrightHome <span></span></li>
-          <li>BakeMaster <span></span></li>
-          <li>ChefMaster <span></span></li>
-          <li>ReflectStyle <span></span></li>
-        </ul>
-        <button class="show-more">Show more</button>
-      </div>
-      <button class="clear-filters">Clear Filters</button>
-
-    </aside>
-
-    <!-- ===== PRODUCT GRID (Saira )===== -->
-    <section class="product-grid">
-
-      <!-- PRODUCT CARD -->
-       <div class="product-card">
-        <div class="img-box">
-          <img class="main-img" src='/images /Kitchen 3.png' alt="Kitchen">
-          <img class="hover-img" src="/images /kitchen4.jpg" alt="Kitchen">
+        <!-- Categories -->
+        <div class="filter-box">
+          <h3>Categories</h3>
+          <ul>
+            <li>Lighting <span></span></li>
+            <li>Appliances <span></span></li>
+            <li>Decor <span></span></li>
+            <li>Electronics <span></span></li>
+          </ul>
+          <button class="show-more">Show more</button>
         </div>
 
-        <div class="product-info">
-          <div class="stars"></div>
-          <h4>Dining table </h4>
-          <p>$ 100.00</p>
+        <!-- Price Range -->
+        <div class="filter-box">
+          <h3>Price Range</h3>
+          <ul>
+            <li>Under $50 <span></span></li>
+            <li>$50–$100 <span></span></li>
+            <li>$100–200 <span></span></li>
+            <li>$200–500 <span></span></li>
+            <li>Over $500 <span></span></li>
+          </ul>
         </div>
-      </div>
 
-      <div class="product-card">
-        <div class="img-box">
-          <img class="main-img" src="/images /Lamp1.png" alt="Lamp">
-          <img class="hover-img" src="/images /lamp3.jpg" alt="Lamp">
+        <!-- Brands -->
+        <div class="filter-box">
+          <h3>Brands</h3>
+          <ul>
+            <li>BrightHome <span></span></li>
+            <li>BakeMaster <span></span></li>
+            <li>ChefMaster <span></span></li>
+            <li>ReflectStyle <span></span></li>
+          </ul>
+          <button class="show-more">Show more</button>
+        </div>
 
-        </div>
-        <div class="product-info">
-          <div class="stars"></div>
-          <h4>Lamp</h4>
-          <p>$ 60.50</p>
-        </div>
-      </div>
+        <button class="clear-filters">Clear Filters</button>
+      </aside>
 
-      <div class="product-card">
-        <div class="img-box">
-          <img class="main-img" src="/images /Kitchen.png" alt="pot">
-          <img class="hover-img" src="/images /kitchen5.jpg" alt="pot">
-        </div>
-        <div class="product-info">
-          <div class="stars"></div>
-          <h4>pot</h4>
-          <p>$ 80.99</p>
-        </div>
-      </div>
+      <!-- ===== PRODUCT GRID ===== -->
+      <section class="product-grid">
 
-      <div class="product-card">
-        <div class="img-box">
-          <img class="main-img" src="/images /Kitchen-2.png" alt="Mixer">
-          <img class="hover-img" src="/images /mixer.jpg" alt="Mixer">
-        </div>
-        <div class="product-info">
-          <div class="stars"></div>
-          <h4>Mixer</h4>
-          <p>$ 55.66</p>
-        </div>
-      </div>
+        <!-- PRODUCT CARD 1 -->
+        <div class="product-card">
+          <div class="img-box">
+            <img class="main-img" src='/images /Kitchen 3.png' alt="Kitchen">
+            <img class="hover-img" src="/images /kitchen4.jpg" alt="Kitchen">
+          </div>
 
-      <div class="product-card">
-        <div class="img-box">
-          <img class="main-img" src="/images /Mirror.png" alt="Mirror">
-          <img class="hover-img" src="/images /mirror2.jpg" alt="Mirror">
+          <div class="product-info">
+            <div class="stars"></div>
+            <h4>Dining table</h4>
+            <p>$ 100.00</p>
+            <button class="add-to-cart"
+                    data-id="1"
+                    data-name="Dining table"
+                    data-price="100.00">
+              Add to cart
+            </button>
+          </div>
         </div>
-        <div class="product-info">
-          <div class="stars"></div>
-          <h4>Mirror</h4>
-          <p>$ 54.77</p>
-        </div>
-      </div>
 
-      <div class="product-card">
-        <div class="img-box">
-          <img class="main-img" src="/images /Tv.png" alt="Tv">
-          <img class="hover-img" src="/images /tv2.jpg" alt="Tv">
+        <!-- PRODUCT CARD 2 -->
+        <div class="product-card">
+          <div class="img-box">
+            <img class="main-img" src="/images /Lamp1.png" alt="Lamp">
+            <img class="hover-img" src="/images /lamp3.jpg" alt="Lamp">
+          </div>
+          <div class="product-info">
+            <div class="stars"></div>
+            <h4>Lamp</h4>
+            <p>$ 60.50</p>
+            <button class="add-to-cart"
+                    data-id="2"
+                    data-name="Lamp"
+                    data-price="60.50">
+              Add to cart
+            </button>
+          </div>
         </div>
-        <div class="product-info">
-          <div class="stars"></div>
-          <h4>tv</h4>
-          <p>$ 110.99</p>
+
+        <!-- PRODUCT CARD 3 -->
+        <div class="product-card">
+          <div class="img-box">
+            <img class="main-img" src="/images /Kitchen.png" alt="Pot">
+            <img class="hover-img" src="/images /kitchen5.jpg" alt="Pot">
+          </div>
+          <div class="product-info">
+            <div class="stars"></div>
+            <h4>Pot</h4>
+            <p>$ 80.99</p>
+            <button class="add-to-cart"
+                    data-id="3"
+                    data-name="Pot"
+                    data-price="80.99">
+              Add to cart
+            </button>
+          </div>
         </div>
-      </div>
 
-    </section>
-  </div>
+        <!-- PRODUCT CARD 4 -->
+        <div class="product-card">
+          <div class="img-box">
+            <img class="main-img" src="/images /Kitchen-2.png" alt="Mixer">
+            <img class="hover-img" src="/images /mixer.jpg" alt="Mixer">
+          </div>
+          <div class="product-info">
+            <div class="stars"></div>
+            <h4>Mixer</h4>
+            <p>$ 55.66</p>
+            <button class="add-to-cart"
+                    data-id="4"
+                    data-name="Mixer"
+                    data-price="55.66">
+              Add to cart
+            </button>
+          </div>
+        </div>
 
-</main>
-  <!-- ==== FOOTER(Team work) ==== -->
+        <!-- PRODUCT CARD 5 -->
+        <div class="product-card">
+          <div class="img-box">
+            <img class="main-img" src="/images /Mirror.png" alt="Mirror">
+            <img class="hover-img" src="/images /mirror2.jpg" alt="Mirror">
+          </div>
+          <div class="product-info">
+            <div class="stars"></div>
+            <h4>Mirror</h4>
+            <p>$ 54.77</p>
+            <button class="add-to-cart"
+                    data-id="5"
+                    data-name="Mirror"
+                    data-price="54.77">
+              Add to cart
+            </button>
+          </div>
+        </div>
+
+        <!-- PRODUCT CARD 6 -->
+        <div class="product-card">
+          <div class="img-box">
+            <img class="main-img" src="/images /Tv.png" alt="TV">
+            <img class="hover-img" src="/images /tv2.jpg" alt="TV">
+          </div>
+          <div class="product-info">
+            <div class="stars"></div>
+            <h4>TV</h4>
+            <p>$ 110.99</p>
+            <button class="add-to-cart"
+                    data-id="6"
+                    data-name="TV"
+                    data-price="110.99">
+              Add to cart
+            </button>
+          </div>
+        </div>
+
+      </section>
+    </div>
+  </main>
+
+  <!-- ==== FOOTER ==== -->
   <footer class="site-footer">
     <div class="footer-container">
       <div class="footer-section brand">

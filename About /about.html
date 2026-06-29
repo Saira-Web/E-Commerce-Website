@@ -1,0 +1,286 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HomeEase</title>
+  <link rel="stylesheet" href="/normalize.css">
+  <link rel="stylesheet" href="/About /about.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="/images /Logo copy.gif">
+</head>
+
+<body>
+  <!-- === HEADER (Team work)=== -->
+  <header>
+    <!-- === Logo Section === -->
+    <div class="logo">
+      <img src="/images /Logo.jpeg" alt ="HomeEase Logo">
+      <div class="brand-text">
+        <h1>HomeEase</h1>
+        <p>Essential Home Supplies</p>
+      </div>
+    </div>
+    
+    <!-- === Navigation Bar === -->
+    <nav class="nav">
+      <a href="/Home/Home.html" ><img src="/icons/home.png" alt="Home icon"> Home</a>
+      <a href="/products/products.html"><img src="/icons/box.png" alt="Products icon"> Products</a>
+      <a href="/About /about.html" class="active"><img src="/icons/information.png" alt="About icon"> About</a>
+      <a href="/Contact/contact.html"><img src="/icons/telephone.png" alt="Contact icon"> Contact</a>
+    </nav>
+
+    <!-- === Header Actions === -->
+    <div class="actions">
+      <!-- Search Bar -->
+      <div class="search">
+        <input type="text" placeholder="Search products...">
+      </div>
+      <!-- language  -->
+      <div class="lang">
+        <img src="/icons/internet.png" alt="Language" class="icon-22">
+        <select class="lang-select">
+          <option value="en">EN</option>
+          <option value="fr">FR</option>
+        </select>
+      </div>
+      <!-- Shopping Cart + mini cart dropdown -->
+      <div class="cart">
+        <img src="/icons/shopping-cart.png" alt="Shopping Cart" class="icon" id="cart-icon">
+        <span id="cart-count">0</span>
+
+        <!-- Mini Cart dropdown -->
+        <div class="cart-dropdown" id="cart-dropdown">
+          <h4 class="cart-title">My Cart</h4>
+
+          <div class="cart-items" id="cart-items">
+            <!-- items will be injected here by JS -->
+          </div>
+
+          <div class="cart-summary">
+            <span>Total:</span>
+            <span id="cart-total">$0.00</span>
+          </div>
+
+          <a href="/checkout/checkout.html" class="checkout-btn">
+            Go to checkout
+          </a>
+        </div>
+      </div>
+
+
+      <!-- Login Button -->
+      <div class="login">
+        <img src="/icons/user.png" alt="User">
+        <span>Log in</span>
+      </div>
+    </div>
+  </header>
+  <!-- Main -->
+  <main>
+
+  <!-- ========== ABOUT SECTION ========== -->
+    <section class="about-hero">
+  <div class="about-hero-inner">
+    <div class="about-copy">
+      <h2 id="about-title">About <span>HomeEase</span></h2>
+
+      <p id="about-p1">
+        We're passionate about helping families, students, and new homeowners
+        create comfortable, functional living spaces without the hassle of
+        visiting multiple stores.
+      </p>
+
+      <p id="about-p2">
+        Founded with the vision of simplifying home shopping, HomeEase brings
+        together everything you need for your home in one convenient platform.
+      </p>
+
+      <p id="about-p3">
+        Whether you're furnishing your first apartment, upgrading your space,
+        or setting up your Canadian home, we make the process simple and enjoyable.
+      </p>
+    </div>
+
+    <!-- Photo Grid -->
+    <div class="about-media">
+      <div class="about-circle about-circle--top"></div>
+      <div class="about-circle about-circle--bottom"></div>
+
+      <div class="about-media-grid">
+        <div class="about-photo about-photo--big">
+          <img src="/images /About.png" alt="About" />
+        </div>
+        <div class="about-photo">
+          <img src="/images /about5.jpg" alt="About" />
+        </div>
+        <div class="about-photo">
+          <img src="/images /about3.jpg" alt="About" />
+        </div>
+        <div class="about-photo about-photo--big">
+          <img src="/images /about4.jpg" alt="About" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ========== OUR VALUES ========== -->
+<section class="values-section">
+  <div class="values-heading">
+    <h2 id="values-title">Our Values</h2>
+    <p id="values-subtitle">The principles that guide everything we do.</p>
+  </div>
+
+  <div class="values-grid">
+
+    <article class="value-card">
+      <div class="value-icon"><img src="/icons/heart.png" /></div>
+      <div class="value-text">
+        <h3 id="value1-title">Customer First</h3>
+        <p id="value1-text">Every decision we make puts our customers first.</p>
+      </div>
+    </article>
+
+    <article class="value-card">
+      <div class="value-icon"><img src="/icons/shield.png" /></div>
+      <div class="value-text">
+        <h3 id="value2-title">Quality Guaranteed</h3>
+        <p id="value2-text">We ensure every item meets our standards.</p>
+      </div>
+    </article>
+
+    <article class="value-card">
+      <div class="value-icon"><img src="/icons/friends.png" /></div>
+      <div class="value-text">
+        <h3 id="value3-title">Community Focus</h3>
+        <p id="value3-text">We build relationships with local communities.</p>
+      </div>
+    </article>
+
+    <article class="value-card">
+      <div class="value-icon"><img src="/icons/medal.png" /></div>
+      <div class="value-text">
+        <h3 id="value4-title">Innovation Driven</h3>
+        <p id="value4-text">We find new ways to improve your experience.</p>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+
+<!-- ========== WHY CHOOSE US ========== -->
+<section class="why-section">
+  <div class="why-heading">
+    <h2 id="why-title">Why Choose HomeEase?</h2>
+    <p id="why-subtitle">We make home shopping simple and reliable.</p>
+  </div>
+
+  <div class="why-grid">
+
+    <div class="why-card">
+      <div class="why-icon"><img src="/icons/truck.png" /></div>
+      <h3 id="why1-title">Fast & Free Delivery</h3>
+      <p id="why1-text">Free delivery on orders over $99.</p>
+    </div>
+
+    <div class="why-card">
+      <div class="why-icon"><img src="/icons/clock.png" /></div>
+      <h3 id="why2-title">24/7 Customer Support</h3>
+      <p id="why2-text">Our team is always ready to help.</p>
+    </div>
+
+    <div class="why-card">
+      <div class="why-icon"><img src="/icons/shield.png" /></div>
+      <h3 id="why3-title">Secure Shopping</h3>
+      <p id="why3-text">Your information is always protected.</p>
+    </div>
+
+  </div>
+  </section>      
+  </main>
+
+ <!-- ==== FOOTER(Team work) ==== -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-section brand">
+        <img src="/images /Logo.jpeg" alt="HomeEase Logo" class="footer-logo" />
+        <h2 class="footer-title">HomeEase</h2>
+        <p class="footer-text">
+          Your one-stop destination for all home essentials. Quality, convenience,
+          and value in one place.
+        </p>
+      </div>
+
+      <!-- === Quick Links === -->
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="/Home/Home.html">Home</a></li>
+          <li><a href="/products/products.html">products</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- === Categories === -->
+      <div class="footer-section">
+        <h3>Categories</h3>
+        <ul>
+          <li><a href="/products/products.html">Furniture</a></li>
+          <li><a href="/products/products.html">Kitchenware</a></li>
+          <li><a href="/products/products.html">Electronics</a></li>
+          <li><a href="/products/products.html">Lighting</a></li>
+          <li><a href="/products/products.html">Decor</a></li>
+          <li><a href="/products/products.html">Storage</a></li>
+          <li><a href="/products/products.html">Bedding</a></li>
+          <li><a href="/products/products.html">Appliances</a></li>
+        </ul>
+      </div>
+
+      <!-- === Social / Contact === -->
+      <div class="footer-section">
+        <h3>Follow Us</h3>
+        <div class="social-icons">
+          <!-- Instagram -->
+          <a class="social" href="#" aria-label="Instagram" title="Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <rect x="3" y="3" width="18" height="18" rx="5" stroke="white" stroke-width="2" />
+              <circle cx="12" cy="12" r="4" stroke="white" stroke-width="2" />
+              <circle cx="17.5" cy="6.5" r="1.25" fill="white" />
+            </svg>
+          </a>
+          <!-- Facebook -->
+          <a class="social" href="#" aria-label="Facebook" title="Facebook">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path d="M13.5 21v-7h2.5l.5-3h-3V9a1.5 1.5 0 0 1 1.5-1.5H17V5h-2a4 4 0 0 0-4 4v2H9v3h2V21h2.5Z" fill="white" />
+            </svg>
+          </a>
+          <!-- WhatsApp -->
+          <a class="social" href="#" aria-label="WhatsApp" title="WhatsApp">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path d="M20 12a8 8 0 0 1-12.3 6.8L4 20l1.2-3.6A8 8 0 1 1 20 12Z" stroke="white" stroke-width="2" />
+              <path d="M8.8 9.8c.2-.5.5-.6.8-.6l.5.1c.2.1.5.6.5.8 0 .3-.3.8-.3.8s.4.8 1.1 1.5 1.6 1.1 1.6 1.1.5-.3.8-.3.7.3.8.5l.1.5c0 .3-.1.6-.6.8-.6.2-1.2.2-2-.2-1.1-.5-1.9-1-2.9-2s-1.5-1.8-2-2.9c-.4-.8-.4-1.4-.2-2 .1-.4.4-.6.8-.6Z" fill="white" />
+            </svg>
+          </a>
+        </div>
+
+        <p class="footer-contact">
+          HomeEase@gmail.com<br />
+          (647) 975-9878
+        </p>
+      </div>
+    </div>
+
+    <!-- === Footer Bottom Bar === -->
+    <div class="footer-bottom">
+      <p>© 2025 HomeEase. All rights reserved.</p>
+      <p>Built with ❤️ for your home.</p>
+    </div>
+  </footer>
+  <script src="/About /about.js"></script>
+</body>
+</html>

@@ -384,6 +384,195 @@ header {
   color: #ffaa00;
   font-size: 14px;
 }
+/* --- Cart icon + counter --- */
+.cart {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  position: relative;
+}
+
+#cart-count {
+  position: absolute;
+  top: -6px;
+  right: -10px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+
+  background: #f97316;         
+  color: #ffffff;
+  border-radius: 999px;
+
+  font-size: 11px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* --- Make product info vertical & spaced --- */
+.product-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* --- Add to cart button --- */
+.add-to-cart {
+  margin-top: 6px;
+  width: 100%;
+  padding: 9px 12px;
+
+  border: none;
+  border-radius: 999px;
+  background: #2452b7;          
+  color: #ffffff;
+
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: 0 4px 10px rgba(36, 82, 183, 0.25);
+  transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.add-to-cart:hover {
+  background: #1d42a0;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(36, 82, 183, 0.35);
+}
+
+.add-to-cart:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(36, 82, 183, 0.3);
+}
+
+/* === Mini Cart Dropdown === */
+
+.cart {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  position: relative; /* مهم برای position absolute dropdown */
+}
+
+/* شمارش سبد از قبل داری، این برای dropdownه */
+.cart-dropdown {
+  position: absolute;
+  top: 110%;
+  right: 0;
+
+  width: 280px;
+  max-height: 340px;
+
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.18);
+
+  padding: 12px 14px;
+  display: none;            /* پیش‌فرض مخفی */
+  flex-direction: column;
+  gap: 8px;
+  z-index: 50;
+}
+
+.cart-dropdown.open {
+  display: flex;
+}
+
+.cart-title {
+  font-size: 14px;
+  font-weight: 700;
+  margin: 0 0 4px;
+}
+
+.cart-items {
+  max-height: 200px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.cart-empty {
+  font-size: 13px;
+  color: #6b7280;
+  margin: 4px 0 6px;
+}
+
+.cart-item-row {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  column-gap: 6px;
+  font-size: 13px;
+  padding: 4px 0;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.cart-item-row:last-child {
+  border-bottom: none;
+}
+
+.cart-item-name {
+  font-weight: 500;
+}
+
+.cart-item-qty {
+  color: #6b7280;
+}
+
+.cart-item-price {
+  font-weight: 600;
+}
+
+.cart-summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  padding-top: 6px;
+  border-top: 1px solid #e5e7eb;
+  margin-top: 2px;
+}
+
+#cart-total {
+  font-weight: 700;
+}
+
+/* checkout button در dropdown */
+.checkout-btn {
+  margin-top: 8px;
+  display: block;
+  text-align: center;
+
+  padding: 8px 12px;
+  border-radius: 999px;
+  text-decoration: none;
+
+  background: #2452b7;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+
+  box-shadow: 0 4px 10px rgba(36, 82, 183, 0.25);
+  transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.checkout-btn:hover {
+  background: #1d42a0;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(36, 82, 183, 0.35);
+}
+
+.checkout-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(36, 82, 183, 0.3);
+}
+
 
 /* ===== Responsive ===== */
 

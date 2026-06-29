@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HomeEase</title>
+  <link rel="stylesheet" href="/normalize.css">
+  <link rel="stylesheet" href="/account/account.css">
+  <script src="/products/products.js" defer></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="/images /Logo copy.gif">
+</head>
+
+<body>
+  <!-- === HEADER (Team work)=== -->
+  <header>
+    <!-- === Logo Section === -->
+    <div class="logo">
+      <img src="/images /Logo.jpeg" alt ="HomeEase Logo">
+      <div class="brand-text">
+        <h1>HomeEase</h1>
+        <p>Essential Home Supplies</p>
+      </div>
+    </div>
+    
+    <!-- === Navigation Bar === -->
+    <nav class="nav">
+      <a href="/Home/Home.html"><img src="/icons/home.png" alt="Home icon"> Home</a>
+      <a href="/products/products.html" class="active"><img src="/icons/box.png" alt="Products icon"> Products</a>
+      <a href="/About /about.html"><img src="/icons/information.png" alt="About icon"> About</a>
+      <a href="/Contact/contact.html"><img src="/icons/telephone.png" alt="Contact icon"> Contact</a>
+    </nav>
+
+    <!-- === Header Actions === -->
+    <div class="actions">
+      <!-- Search Bar -->
+      <div class="search">
+        <input type="text" placeholder="Search products...">
+      </div>
+
+      <!-- language  -->
+      <div class="lang">
+        <img src="/icons/internet.png" alt="Language" class="icon-22">
+        <select class="lang-select">
+          <option value="en">EN</option>
+          <option value="fr">FR</option>
+        </select>
+      </div>
+      <!-- Shopping Cart + mini cart dropdown -->
+      <div class="cart">
+        <img src="/icons/shopping-cart.png" alt="Shopping Cart" class="icon" id="cart-icon">
+        <span id="cart-count">0</span>
+
+        <!-- Mini Cart dropdown -->
+        <div class="cart-dropdown" id="cart-dropdown">
+          <h4 class="cart-title">My Cart</h4>
+
+          <div class="cart-items" id="cart-items">
+            <!-- items will be injected here by JS -->
+          </div>
+
+          <div class="cart-summary">
+            <span>Total:</span>
+            <span id="cart-total">$0.00</span>
+          </div>
+
+          <a href="/checkout/checkout.html" class="checkout-btn">
+            Go to checkout
+          </a>
+        </div>
+      </div>
+
+
+      <!-- Login Button -->
+      <div class="login">
+      <a href="/account/account.html" class="active"><img src="/icons/user.png" alt="account "> Log in </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="account-page">
+  <section class="account-layout">
+    <!-- Sidebar -->
+    <aside class="account-sidebar">
+      <div class="account-user">
+        <div class="avatar-circle" id="avatarInitial">S</div>
+        <div>
+          <h2 id="accountName">Guest</h2>
+          <p id="accountEmail">guest@example.com</p>
+        </div>
+      </div>
+
+      <nav class="account-nav">
+        <button class="account-nav-btn active" data-tab="overview">
+          Overview
+        </button>
+        <button class="account-nav-btn" data-tab="orders">
+          Orders
+        </button>
+        <button class="account-nav-btn" data-tab="settings">
+          Settings
+        </button>
+      </nav>
+
+      <div class="account-meta">
+        <p><strong>Member since:</strong> <span id="memberSince">2025</span></p>
+        <p><strong>Tier:</strong> <span id="memberTier">HomeEase Basic</span></p>
+      </div>
+    </aside>
+
+    <!-- Content -->
+    <section class="account-content">
+      <!-- Overview tab -->
+      <div class="account-tab active" id="tab-overview">
+        <h2>Account Overview</h2>
+        <p class="tab-subtitle">
+          Manage your personal details and see a quick summary of your activity.
+        </p>
+
+        <div class="overview-cards">
+          <div class="overview-card">
+            <h3>Personal Details</h3>
+            <p><strong>Name:</strong> <span id="ovName">Guest</span></p>
+            <p><strong>Email:</strong> <span id="ovEmail">guest@example.com</span></p>
+          </div>
+
+          <div class="overview-card">
+            <h3>Order Snapshot</h3>
+            <p><strong>Total orders:</strong> <span id="ovOrders">0</span></p>
+            <p><strong>Last order:</strong> <span id="ovLastOrder">—</span></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Orders tab -->
+      <div class="account-tab" id="tab-orders">
+        <h2>Your Orders</h2>
+        <p class="tab-subtitle">
+          Track your recent purchases and check their status.
+        </p>
+
+        <div class="orders-list" id="ordersList">
+        </div>
+      </div>
+
+      <!-- Settings tab -->
+      <div class="account-tab" id="tab-settings">
+        <h2>Account Settings</h2>
+        <p class="tab-subtitle">
+          Update your profile information and password.
+        </p>
+
+        <form class="account-form" id="profileForm" novalidate>
+          <div class="form-row">
+            <label for="profileName">Full Name</label>
+            <input type="text" id="profileName" name="profileName" required />
+          </div>
+
+          <div class="form-row">
+            <label for="profileEmail">Email Address</label>
+            <input type="email" id="profileEmail" name="profileEmail" required />
+          </div>
+
+          <div class="form-row form-row-inline">
+            <div>
+              <label for="newPassword">New Password</label>
+              <input type="password" id="newPassword" name="newPassword" />
+            </div>
+            <div>
+              <label for="confirmPassword">Confirm Password</label>
+              <input type="password" id="confirmPassword" name="confirmPassword" />
+            </div>
+          </div>
+
+          <p class="form-hint">
+            Leave password fields empty if you don't want to change your password.
+          </p>
+
+          <button type="submit" class="btn-save">Save changes</button>
+          <p class="form-status" id="accountStatus" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </section>
+</main>
+<!-- ==== FOOTER ==== -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-section brand">
+        <img src="/images /Logo.jpeg" alt="HomeEase Logo" class="footer-logo" />
+        <h2 class="footer-title">HomeEase</h2>
+        <p class="footer-text">
+          Your one-stop destination for all home essentials. Quality, convenience,
+          and value in one place.
+        </p>
+      </div>
+
+      <!-- === Quick Links === -->
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="/Home/Home.html">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- === Categories === -->
+      <div class="footer-section">
+        <h3>Categories</h3>
+        <ul>
+          <li><a href="/products/products.html">Furniture</a></li>
+          <li><a href="/products/products.html">Kitchenware</a></li>
+          <li><a href="/products/products.html">Electronics</a></li>
+          <li><a href="/products/products.html">Lighting</a></li>
+          <li><a href="/products/products.html">Decor</a></li>
+          <li><a href="/products/products.html">Storage</a></li>
+          <li><a href="/products/products.html">Bedding</a></li>
+          <li><a href="/products/products.html">Appliances</a></li>
+        </ul>
+      </div>
+
+      <!-- === Social / Contact === -->
+      <div class="footer-section">
+        <h3>Follow Us</h3>
+        <div class="social-icons">
+          <!-- Instagram -->
+          <a class="social" href="#" aria-label="Instagram" title="Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <rect x="3" y="3" width="18" height="18" rx="5" stroke="white" stroke-width="2" />
+              <circle cx="12" cy="12" r="4" stroke="white" stroke-width="2" />
+              <circle cx="17.5" cy="6.5" r="1.25" fill="white" />
+            </svg>
+          </a>
+          <!-- Facebook -->
+          <a class="social" href="#" aria-label="Facebook" title="Facebook">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path d="M13.5 21v-7h2.5l.5-3h-3V9a1.5 1.5 0 0 1 1.5-1.5H17V5h-2a4 4 0 0 0-4 4v2H9v3h2V21h2.5Z" fill="white" />
+            </svg>
+          </a>
+          <!-- WhatsApp -->
+          <a class="social" href="#" aria-label="WhatsApp" title="WhatsApp">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path d="M20 12a8 8 0 0 1-12.3 6.8L4 20l1.2-3.6A8 8 0 1 1 20 12Z" stroke="white" stroke-width="2" />
+              <path d="M8.8 9.8c.2-.5.5-.6.8-.6l.5.1c.2.1.5.6.5.8 0 .3-.3.8-.3.8s.4.8 1.1 1.5 1.6 1.1 1.6 1.1.5-.3.8-.3.7.3.8.5l.1.5c0 .3-.1.6-.6.8-.6.2-1.2.2-2-.2-1.1-.5-1.9-1-2.9-2s-1.5-1.8-2-2.9c-.4-.8-.4-1.4-.2-2 .1-.4.4-.6.8-.6Z" fill="white" />
+            </svg>
+          </a>
+        </div>
+
+        <p class="footer-contact">
+          HomeEase@gmail.com<br />
+          (647) 975-9878
+        </p>
+      </div>
+    </div>
+
+    <!-- === Footer Bottom Bar === -->
+    <div class="footer-bottom">
+      <p>© 2025 HomeEase. All rights reserved.</p>
+      <p>Built with ❤️ for your home.</p>
+    </div>
+  </footer>
+  <script src="/account/account.js"></script>
+
+</body>
+</html>

@@ -647,3 +647,163 @@ document.addEventListener("DOMContentLoaded", () => {
   setupSingleSelect(brandLis);
   applyFiltersAndSort();
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  // دکمه‌های ادامه خرید
+  const continueTop = document.getElementById("continueTop");
+  const continueEmpty = document.getElementById("continueEmpty");
+
+  const cartFull = document.getElementById("cartFull");
+  const cartEmpty = document.getElementById("cartEmpty");
+
+  const itemsContainer = document.getElementById("cartItems");
+  const itemsCountEl = document.getElementById("cartItemsCount");
+
+  const subtotalEl = document.getElementById("summarySubtotal");
+  const taxEl = document.getElementById("summaryTax");
+  const totalEl = document.getElementById("summaryTotal");
+  const btnCheckout = document.getElementById("btnCheckout");
+
+  const TAX_RATE = 0.13;
+
+  // نمونه داده – بعداً می‌تونی از localStorage یا API بگیری
+  let cartItems = [
+    {
+      id: 1,
+      name: "Bamboo Storage Organizer",
+      description:
+        "Eco-friendly bamboo storage unit with multiple compartments for organizing any room.",
+      category: "Storage",
+      price: 159.99,
+      qty: 1,
+      image: "/images/bamboo-storage.jpg",
+    },
+    {
+      id: 2,
+      name: "55-inch 4K Smart TV",
+      description:
+        "Ultra HD Smart TV with streaming apps, HDR support, and crystal clear picture quality.",
+      category: "Electronics",
+      price: 649.99,
+      qty: 1,
+      image: "/images/tv-4k.jpg",
+    },
+  ];
+
+  // اگر خواستی بعداً از localStorage بخونی:
+  // const saved = localStorage.getItem("homeease-cart");
+  // if (saved) cartItems = JSON.parse(saved);
+
+  function saveCart() {
+    localStorage.setItem("homeease-cart", JSON.stringify(cartItems));
+  }
+
+  function formatMoney(value) {
+    return `$${value.toFixed(2)}`;
+  }
+
+  // رندر کردن کل سبد
+  function renderCart() {
+    if (!cartItems.length) {
+      cartFull.style.display = "none";
+      cartEmpty.style.display = "flex";
+      itemsCountEl.textContent = "0 items";
+      subtotalEl.textContent = "$0.00";
+      taxEl.textContent = "$0.00";
+      totalEl.textContent = "$0.00";
+      return;
+    }
+
+    cartFull.style.display = "grid";
+    cartEmpty.style.display = "none";
+
+    // تعداد آیتم‌ها
+    const totalQty = cartItems.reduce((sum, item) => sum + item.qty, 0);
+    itemsCountEl.textContent =
+      totalQty + (totalQty === 1 ? " item" : " items");
+
+    // ساخت HTML کارت‌ها
+    itemsContainer.innerHTML = "";
+    cartItems.forEach((item) => {
+      const card = document.createElement("article");
+      card.className = "cart-item-card";
+      card.innerHTML = `
+        <img class="cart-item-image" src="${item.image}" alt="${item.name}">
+        <div class="cart-item-info">
+          <h3>${item.name}</h3>
+          <p>${item.description}</p>
+          <span class="cart-item-tag">${item.category}</span>
+        </div>
+        <div class="cart-item-right">
+          <div>
+            <div class="cart-qty-row">
+              <button class="cart-qty-btn" data-action="decrease" data-id="${item.id}">−</button>
+              <span class="cart-qty">${item.qty}</span>
+              <button class="cart-qty-btn" data-action="increase" data-id="${item.id}">+</button>
+            </div>
+            <div class="cart-price-main">${formatMoney(item.price * item.qty)}</div>
+            <div class="cart-price-each">${formatMoney(item.price)} each</div>
+          </div>
+          <button class="cart-delete-btn" data-action="remove" data-id="${item.id}">
+            Remove
+          </button>
+        </div>
+      `;
+      itemsContainer.appendChild(card);
+    });
+
+    // محاسبه جمع‌ها
+    const subtotal = cartItems.reduce(
+      (sum, item) => sum + item.price * item.qty,
+      0
+    );
+    const tax = subtotal * TAX_RATE;
+    const total = subtotal + tax;
+
+    subtotalEl.textContent = formatMoney(subtotal);
+    taxEl.textContent = formatMoney(tax);
+    totalEl.textContent = formatMoney(total);
+  }
+
+  itemsContainer.addEventListener("click", (e) => {
+    const btn = e.target.closest("button");
+    if (!btn) return;
+
+    const action = btn.dataset.action;
+    const id = Number(btn.dataset.id);
+    const item = cartItems.find((i) => i.id === id);
+    if (!item) return;
+
+    if (action === "increase") {
+      item.qty += 1;
+    } else if (action === "decrease") {
+      if (item.qty > 1) {
+        item.qty -= 1;
+      } else {
+        cartItems = cartItems.filter((i) => i.id !== id);
+      }
+    } else if (action === "remove") {
+      cartItems = cartItems.filter((i) => i.id !== id);
+    }
+    saveCart();
+    renderCart();
+  });
+
+ 
+  function goToProducts() {
+    window.location.href = "/products/products.html";
+  }
+
+  if (continueTop) continueTop.addEventListener("click", goToProducts);
+  if (continueEmpty) continueEmpty.addEventListener("click", goToProducts);
+
+  // دکمه چک‌اوت
+  if (btnCheckout) {
+    btnCheckout.addEventListener("click", () => {
+      alert("Checkout flow not implemented – this is a demo 😄");
+    });
+  }
+
+  // اجرای اولیه
+  renderCart();
+});
